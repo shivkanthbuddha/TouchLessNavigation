@@ -10,6 +10,9 @@
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
+    <script src="https://unpkg.com/fdist/aframe-environment-component.min.js"></script>
+
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -20,13 +23,38 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     
-  <title>Fish follow</title>
+  <title>Touchless Navigation</title>
   </head>
   <body>
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
-    <div id="root"></div>
+    <a-scene environment="preset: forest">
+      <a-assets>
+        <img id="boxTexture" src="https://i.imgur.com/mYmmbrp.jpg">
+      </a-assets>
+      
+      <a-box position="0 2 -5" rotation="0 45 45" scale="2 2 2" src="#boxTexture">
+        <a-animation attribute="position" direction="alternate" dur="2000" repeat="indefinite"
+          to="0 2.2 -5"></a-animation>
+        <a-animation attribute="rotation" begin="click" dur="2000" to="360 405 45"></a-animation>
+        <a-animation attribute="scale" begin="mouseenter" dur="300" to="2.3 2.3 2.3"></a-animation>
+        <a-animation attribute="scale" begin="mouseleave" dur="300" to="2 2 2"></a-animation>
+      </a-box>
+
+      <a-text value=" Welcome to Touchless Navigation" color="black" position="-2.5 0.2 -3" scale="1.5 1.5 1.5"></a-text>
+      
+      <a-cylinder position="10 10 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
+      
+      <a-camera>
+        <a-cursor color="red"></a-cursor>
+      </a-camera>
+    </a-scene>
+
+    <div id="root">
+      
+    </div>
+    
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -37,5 +65,6 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    
   </body>
 </html>

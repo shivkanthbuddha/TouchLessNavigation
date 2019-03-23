@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import * as posenet from '@tensorflow-models/posenet';
+import $ from 'jquery'; 
+
 
 import './style.css';
 
@@ -100,6 +102,9 @@ class App extends Component {
         oldTop: this.state.top,
         oldLeft: this.state.left,
       })
+      $("body").trigger(
+        $.Event('keydown', { key : '39' })
+     );
     }
 
     this.initCapture();
