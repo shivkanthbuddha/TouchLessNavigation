@@ -7,11 +7,9 @@ inspired by https://aralroca.github.io/fishFollow-posenet-tfjs/
 TensorflowJS with Posenet model.
 
 ## Getting start
-
-* `yarn install`
+* install node 
+* `npm install`
 * `npm start`
 
 ## DEMO
 
-
-* [https://aralroca.github.io/fishFollow-posenet-tfjs/](https://aralroca.github.io/fishFollow-posenet-tfjs/)
